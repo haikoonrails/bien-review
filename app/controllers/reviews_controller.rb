@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to root_path
     else
-      # show the view for new.html.erb 
+      # show the view for new.html.erb
       render "new"
     end
 
@@ -59,9 +59,12 @@ class ReviewsController < ApplicationController
     # find the individual review
     @review = Review.find(params[:id])
     # update with the new information
-    @review.update(form_param)
-    # redirect somewhere new
-    redirect_to review_path(@review)
+    if @review.update(form_param)
+      # redirect somewhere new
+      redirect_to review_path(@review)
+    else
+      render "edit" #edit.html.erb
+    end
   end
 
   # self create function

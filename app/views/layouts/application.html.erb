@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bien</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+
+      <h1> <%= link_to "Bien reviews", root_path %> </h1>
+      <h3>Best website for restaurant review</h3>
+
+      <nav>
+        <%= link_to "Add a review", new_review_path %>
+      </nav>
+       
+    </header>
+
+    <%= yield %>
+
+    <footer>
+        <p>Copyright 2022</p>
+    </footer>
+  </body>
+</html>

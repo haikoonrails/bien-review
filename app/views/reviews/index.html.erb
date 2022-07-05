@@ -1,0 +1,7 @@
+<% @restaurants.each do |restaurant| %>
+
+  <div class="review">
+    <%= link_to restaurant.title, review_path(restaurant)%>
+  </div>
+
+<% end %>

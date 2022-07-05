@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   def index
     # List page of reviews
 
-    @number = 13
     @restaurants = Review.all
 
   end
@@ -19,11 +18,15 @@ class ReviewsController < ApplicationController
 
     @review = Review.new(form_param)
 
-    # save to database (Model-Table)
-    @review.save
-
-    # redirect back to the home page
-    redirect_to root_path
+    # we want to check if the model can be saved
+    # if it is, we are go to home page again
+    # if it isn't, show the new form
+    if @review.save
+      redirect_to root_path
+    else
+      # show the view for new.html.erb 
+      render "new"
+    end
 
   end
   # --- ---

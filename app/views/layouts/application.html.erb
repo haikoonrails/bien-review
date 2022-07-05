@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bien</title>
+    <title><%= content_for :page_title %> - Bien</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +18,7 @@
       <nav>
         <%= link_to "Add a review", new_review_path %>
       </nav>
-       
+
     </header>
 
     <%= yield %>

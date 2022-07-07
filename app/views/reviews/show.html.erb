@@ -3,14 +3,24 @@
 <h1><%= @review.title %></h1>
 <h2><%= @review.restaurant %></h2>
 
+<% if @review.cuisine.present? %>
+  <div class="ambiance">
+    cuisine: <%= @review.cuisine %>
+  </div>
+<% end %>
+
+<div class="price">
+  price: <%= @review.price %>
+</div>
+
 <div class="score">
   <%= @review.score %> / 10
 </div>
 
 <% if @review.ambiance.present? %>
-<div class="ambiance">
-  ambiance: <%= @review.ambiance %>
-</div>
+  <div class="ambiance">
+    ambiance: <%= @review.ambiance %>
+  </div>
 <% end %>
 
 <p><%= simple_format @review.body %></p>

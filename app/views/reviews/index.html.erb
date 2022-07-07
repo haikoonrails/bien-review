@@ -1,5 +1,12 @@
-<% @restaurants.each do |restaurant| %>
+<% content_for :page_title, "Homepage" %>
+<nav class="filters">
+  <%= link_to "All prices", root_path %>
+  <%= link_to "$", root_path(price: 1) %>
+  <%= link_to "$$", root_path(price: 2) %>
+  <%= link_to "$$$", root_path(price: 3) %>
+</nav>
 
+<% @restaurants.each do |restaurant| %>
   <div class="review">
     <%= link_to restaurant.title, review_path(restaurant)%>
   </div>

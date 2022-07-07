@@ -7,11 +7,12 @@ class ReviewsController < ApplicationController
     # is there a filter for price
     if @price.present?
       # filter by price
+      @restaurants = Review.where(price: @price)
     else
-      # all the reviews
+      # all the restaurants
       @restaurants = Review.all
     end
-    
+
   end
 
   # --- ---

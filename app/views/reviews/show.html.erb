@@ -7,6 +7,12 @@
   <%= @review.score %> / 10
 </div>
 
+<% if @review.ambiance.present? %>
+<div class="ambiance">
+  ambiance: <%= @review.ambiance %>
+</div>
+<% end %>
+
 <p><%= simple_format @review.body %></p>
 
 <div class="actions">

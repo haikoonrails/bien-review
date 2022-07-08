@@ -1,9 +1,14 @@
 <% content_for :page_title, "Homepage" %>
 <nav class="filters">
-  <%= link_to "All prices", root_path %>
-  <%= link_to "$", root_path(price: 1) %>
-  <%= link_to "$$", root_path(price: 2) %>
-  <%= link_to "$$$", root_path(price: 3) %>
+  <%= link_to "All restaurants", root_path %>
+  <%= link_to "$", root_path(price: 1, cuisine: @cuisine) %>
+  <%= link_to "$$", root_path(price: 2, cuisine: @cuisine) %>
+  <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine) %>
+
+  <%= link_to "italian", root_path(cuisine: "italian", price: @price) %>
+  <%= link_to "iranian", root_path(cuisine: "iranian", price: @price) %>
+  <%= link_to "mexican", root_path(cuisine: "mexican", price: @price) %>
+
 </nav>
 
 <% @restaurants.each do |restaurant| %>

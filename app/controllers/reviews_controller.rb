@@ -3,14 +3,19 @@ class ReviewsController < ApplicationController
   def index
     # List page of reviews
     @price = params[:price]
+    @cuisine = params[:cuisine]
 
-    # is there a filter for price
+    # start with all the reviews
+    @restaurants = Review.all
+
+    # filtering by price
     if @price.present?
-      # filter by price
-      @restaurants = Review.where(price: @price)
-    else
-      # all the restaurants
-      @restaurants = Review.all
+      @restaurants = @restaurants.where(price: @price)
+    end
+
+    # filtering by cuisine
+    if @cuisine.present?
+      @restaurants = @restaurants.where(cuisine: @cuisine)
     end
 
   end

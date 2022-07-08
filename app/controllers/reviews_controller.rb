@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     # List page of reviews
     @price = params[:price]
     @cuisine = params[:cuisine]
+    @location = params[:location]
 
     # start with all the reviews
     @restaurants = Review.all
@@ -16,6 +17,11 @@ class ReviewsController < ApplicationController
     # filtering by cuisine
     if @cuisine.present?
       @restaurants = @restaurants.where(cuisine: @cuisine)
+    end
+
+    # search by location
+    if @location.present?
+      @restaurants = @restaurants.near(@location)
     end
 
   end

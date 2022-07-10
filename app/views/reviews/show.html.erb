@@ -30,3 +30,10 @@
   <%= link_to "Delete this review", review_path(@review), method: :delete,
   data: { confirm: "Are u sure babe?!" } %>
 </div>
+
+<h3>Add a comment</h3>
+
+<%= simple_form_for [@review, Comment.new] do |f| %>
+  <%= f.input :body %>
+  <%= f.button :submit, "Add Comment" %>
+<% end %>

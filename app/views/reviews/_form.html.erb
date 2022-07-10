@@ -1,22 +1,12 @@
-<%= form_for @review do |f| %>
+<%= simple_form_for @review do |f| %>
+  <%= f.input :title %>
+  <%= f.input :restaurant %>
+  <%= f.input :address %>
+  <%= f.input :body %>
+  <%= f.input :cuisine %>
+  <%= f.input :price %>
+  <%= f.input :score %>
+  <%= f.input :ambiance %>
 
-  <% if @review.errors.any? %>
-    <div class="errors">
-      <!-- message or anything else -->
-      <% @review.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <p>title: <%= f.text_field :title %></p>
-  <p>restaurant: <%= f.text_field :restaurant %></p>
-  <p>address: <%= f.text_field :address %></p>
-  <p>body: <%= f.text_area :body %></p>
-  <p>ambiance: <%= f.text_field :ambiance %></p>
-  <p>cuisine: <%= f.text_field :cuisine %></p>
-  <p>score: <%= f.number_field :score %></p>
-  <p>price: <%= f.number_field :price %></p>
-  <%= f.submit "Save review"%>
-
+  <% f.button :submit %>
 <% end %>

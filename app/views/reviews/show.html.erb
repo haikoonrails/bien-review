@@ -31,6 +31,14 @@
   data: { confirm: "Are u sure babe?!" } %>
 </div>
 
+<h3>Comments</h3>
+<% @review.comments.order("created_at desc").each do |comment| %>
+  <div class="comment">
+    <%= simple_format comment.body %>
+    <i><strong>posted at <%= time_ago_in_words comment.created_at %></strong></i>
+  </div>
+<% end %>
+
 <h3>Add a comment</h3>
 
 <%= simple_form_for [@review, Comment.new] do |f| %>

@@ -21,7 +21,12 @@
 
 <% @restaurants.each do |restaurant| %>
   <div class="review">
-    <%= link_to restaurant.title, review_path(restaurant)%>
+    <%= link_to review_path(restaurant) do %>
+      <h2><%= restaurant.title %></h2>
+      <p>
+        <%= restaurant.cuisine %> -
+        <%= pluralize restaurant.comments.count, "comment" %> 
+    <% end %>
   </div>
 
 <% end %>

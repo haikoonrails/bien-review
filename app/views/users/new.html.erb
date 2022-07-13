@@ -1,0 +1,11 @@
+<h2>Sign up</h2>
+
+<!--@user is from @user variable in controller -->
+<%= simple_form_for @user do |f| %>
+
+  <%= f.input :username %>
+  <%= f.input :email %>
+
+  <%= f.button :submit, "Sign Up" %>
+
+<% end %>

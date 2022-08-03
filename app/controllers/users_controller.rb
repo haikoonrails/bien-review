@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  def index
+
+    @users = User.all
+
+  end
+
   def new
     # a form for adding a new user
     @user = User.new

@@ -1,1 +1,7 @@
 <h2>Bien login form</h2>
+<%= simple_form_for :session, url: sessions_path do |f| %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+
+  <%= f.button :submit, "Log in" %>
+<% end %>

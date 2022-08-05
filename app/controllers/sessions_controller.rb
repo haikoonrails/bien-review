@@ -6,6 +6,20 @@ class SessionsController < ApplicationController
 
   def create
     # try log in
+    @form_data = params.require(:session)
+
+    @username = @form_data[:username]
+    @password = @form_data[:password]
+
+    @user = User.find_by(username: @username).try(:authenticate, @password)
+
+    #if the user present -> redirect to the home page.
+    if @user
+      redirect_to root_path
+    else
+      render "new"
+    end
+
   end
 
   def destroy

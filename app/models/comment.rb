@@ -3,5 +3,6 @@ class Comment < ApplicationRecord
 
   validates :body, presence: true
 
-  profanity_filter :body
+  # it would be rise and error in our codes 
+  #profanity_filter :body
 end

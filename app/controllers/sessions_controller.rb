@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
     #if the user present -> redirect to the home page.
     if @user
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render "new"

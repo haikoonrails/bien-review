@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
 
 #--- ---
-  resources :sessions
+  # remove plural "s"
+  resource :session
 #--- ---
 
 end

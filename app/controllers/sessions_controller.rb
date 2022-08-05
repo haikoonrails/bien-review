@@ -25,5 +25,10 @@ class SessionsController < ApplicationController
 
   def destroy
     # try log out
+    # remove session completely
+    reset_session
+
+    # return to the log in page
+    redirect_to new_session_path
   end
 end

@@ -16,8 +16,16 @@
       <h3>Best website for restaurant review</h3>
 
       <nav>
-        User ID: <%= session[:user_id] %>
-        <%= link_to "Add a review", new_review_path %>
+        <% if session[:user_id].present? %>
+          <%= link_to "Add a review", new_review_path %>
+        <% else %>
+          <!-- user controller -> new page -->
+          <%= link_to "Sign Up", new_user_path %>
+          <!-- session controller -> new page -->
+          <%= link_to "Log in", new_session_path %>
+
+        <% end %>
+
       </nav>
 
     </header>

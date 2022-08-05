@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     # if not, see the form with errors
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to users_path
     else
       render "new"

@@ -7,8 +7,16 @@ Rails.application.routes.draw do
 
   root "reviews#index"
 
-#--- --- 
+#--- ---
 
+#--- ---
   resources :users
+
+#--- ---
+
+
+#--- ---
+  resources :sessions
+#--- ---
 
 end

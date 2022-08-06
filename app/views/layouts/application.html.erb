@@ -17,6 +17,7 @@
 
       <nav>
         <% if session[:user_id].present? %>
+          <%= @current_user.username %>
           <%= link_to "Add a review", new_review_path %>
           <%= link_to "Log out", session_path, method: :delete %>
         <% else %>

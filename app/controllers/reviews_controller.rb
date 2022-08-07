@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  # check if logged in
+  before_action :check_login, except: [:index, :show]
+
   def index
     # List page of reviews
     @price = params[:price]

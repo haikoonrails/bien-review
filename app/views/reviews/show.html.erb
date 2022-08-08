@@ -39,7 +39,7 @@
 
     <p class="posted">
       posted by
-      <% if comment.user.present %>
+      <% if comment.user.present? %>
         <%= comment.user.username %>
       <% else %>
         anonymous

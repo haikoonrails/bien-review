@@ -66,8 +66,12 @@ class ReviewsController < ApplicationController
   def destroy
     # find row in database(Model-Table) with id
     @review = Review.find(params[:id])
+
     # destroy it
-    @review.destroy
+    if @review.user == @current_user
+      @review.destroy
+    end
+
     # link to home page
     redirect_to root_path
   end
@@ -76,19 +80,30 @@ class ReviewsController < ApplicationController
   def edit
     # find individual review for edit
     @review = Review.find(params[:id])
+
+    if @review.user != @current_user
+      redirect_to root_path
+    end
   end
 
   # --- update ---
   def update
     # find the individual review
     @review = Review.find(params[:id])
-    # update with the new information
-    if @review.update(form_param)
-      # redirect somewhere new
-      redirect_to review_path(@review)
+
+    if @review.user != @current_user
+      redirect_to root_path
     else
-      render "edit" #edit.html.erb
+      # update with the new information
+      if @review.update(form_param)
+        # redirect somewhere new
+        redirect_to review_path(@review)
+      else
+        render "edit" #edit.html.erb
+      end
     end
+
+
   end
 
   # self create function

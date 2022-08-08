@@ -2,6 +2,7 @@ class Review < ApplicationRecord
 
   # add 1 to many relationship
   has_many :comments
+  has_many :bookmarks
 
   belongs_to :user
 

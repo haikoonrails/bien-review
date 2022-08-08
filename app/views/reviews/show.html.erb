@@ -36,6 +36,16 @@
   <div class="comment">
     <%= simple_format comment.body %>
     <i><strong>posted at <%= time_ago_in_words comment.created_at %></strong></i>
+
+    <p class="posted">
+      posted by
+      <% if comment.user.present %>
+        <%= comment.user.username %>
+      <% else %>
+        anonymous
+      <% end %>
+    </p>
+
   </div>
 <% end %>
 

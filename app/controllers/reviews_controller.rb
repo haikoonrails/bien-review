@@ -40,6 +40,8 @@ class ReviewsController < ApplicationController
 
     @review = Review.new(form_param)
 
+    @review.user = @current_user
+
     # we want to check if the model can be saved
     # if it is, we are go to home page again
     # if it isn't, show the new form

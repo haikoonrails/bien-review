@@ -16,7 +16,7 @@
       <h3>Best website for restaurant review</h3>
 
       <nav>
-        <% if session[:user_id].present? %>
+        <% if is_logged_in? %>
           <%= @current_user.username %>
           <%= link_to "Add a review", new_review_path %>
           <%= link_to "Log out", session_path, method: :delete %>

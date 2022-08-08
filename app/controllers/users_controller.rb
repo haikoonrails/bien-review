@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   end
 
+  def show
+    @user = User.find_by(username: params[:id])
+  end
+
   def new
     # a form for adding a new user
     @user = User.new

@@ -40,7 +40,7 @@
     <p class="posted">
       posted by
       <% if comment.user.present? %>
-        <%= comment.user.username %>
+        <%= link_to comment.user.username, user_path(comment.user)%>
       <% else %>
         anonymous
       <% end %>

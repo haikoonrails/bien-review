@@ -17,4 +17,14 @@ class BookmarksController < ApplicationController
 
   end
 
+  def destroy
+    #find the review we are bookmarking
+    @review = Review.find(params[:review_id])
+
+    @review.bookmarks.where(user: @current_user).delete_all
+
+    redirect_to review_path(@review)
+
+  end
+
 end

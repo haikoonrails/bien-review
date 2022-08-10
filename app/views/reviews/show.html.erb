@@ -12,6 +12,14 @@
   <% end %>
 <% end %>
 
+<h3>bookmarked by...</h3>
+
+<ul>
+  <% @review.bookmarks.each do |bookmark| %>
+    <li><%= bookmark.user.username %></li>
+  <% end %>
+</ul>
+
 
 <% if @review.cuisine.present? %>
   <div class="ambiance">

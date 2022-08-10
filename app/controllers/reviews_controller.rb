@@ -111,7 +111,7 @@ class ReviewsController < ApplicationController
   # self create function
   def form_param
     params.require(:review).permit(:title, :restaurant, :body, :score,
-    :ambiance, :price, :cuisine, :address)
+    :ambiance, :price, :cuisine, :address, :photo)
   end
 
 end

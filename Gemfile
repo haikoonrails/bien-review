@@ -33,6 +33,9 @@ gem 'simple_form', '~> 5.1'
 
 gem 'profanity-filter', '~> 1.0'
 
+# uploading files
+gem 'carrierwave', '~> 2.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
